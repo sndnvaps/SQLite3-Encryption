@@ -4,7 +4,7 @@ image:
 # branches to build
 branches:
   only:
-    - master
+    - dev
 
 # environments
 environment:
@@ -27,6 +27,7 @@ before_build:
   - cmd: 7z x -y icu4c-64_2-Win32-MSVC2017.zip -o%LIBICU_PATH%
   - cmd: 7z x -y icu4c-64_2-Win64-MSVC2017.zip -o%LIBICU_PATH%
   - cmd: 7z x icu4c-64_2-data.zip -o%LIBICU_PATH%
+  - cmd: del icu4c-64_2-Win32-MSVC2017.zip && del icu4c-64_2-Win64-MSVC2017.zip && del icu4c-64_2-data.zip
   - cmd: c:\projects\sqlite3enc\premake.bat --builddir=build vs2017
 
 # build script
@@ -39,16 +40,15 @@ after_build:
   - ps: Get-ChildItem .\*.zip | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 #
 deploy:
-   release: SQLite3-Encryption-v%APPVEYOR_BUILD_VERSION%
-   description: "update sqlite3 to v3.29.0"
+   description: 'Automatically deployed release'
    provider: GitHub
    auth_token:
-    secure: YiRkHuWnabCRwdYGhwkPZRSUJmVb/UeKn3YEQ+0mLTfIsGKrVUfDKdObe/MsYf1A
+    secure: qqaNJj0jpbfh7viGJc7H36wYBqR1ryH7+bikKCT1PRMDls6qBuVOeuMib2jSBHpG
    draft: false
    prerelease: false
    on:
-      branch: master
-   appveyor_repo_tag: false
+      branch: dev
+   appveyor_repo_tag: true
 
 on_success:
 - ps: >-
