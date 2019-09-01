@@ -49,7 +49,7 @@ deploy:
    prerelease: false
    on:
       branch: dev
-      appveyor_repo_tag: true
+   appveyor_repo_tag: true
 
 on_success:
 - ps: >-
