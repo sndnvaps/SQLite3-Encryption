@@ -43,7 +43,7 @@ deploy:
    description: 'Automatically deployed release'
    provider: GitHub
    auth_token:
-    secure: wZ049LmzjlMHqV5IFklperAW7uhpMllxePBaf+ZUK5IWJQGsPEY8pCsmTw+Yck4d
+    secure: qqaNJj0jpbfh7viGJc7H36wYBqR1ryH7+bikKCT1PRMDls6qBuVOeuMib2jSBHpG
    draft: false
    prerelease: false
    on:
