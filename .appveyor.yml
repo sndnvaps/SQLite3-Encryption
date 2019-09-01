@@ -43,7 +43,7 @@ deploy:
    description: 'Automatically deployed release'
    provider: GitHub
    auth_token:
-    secure: 1cd173d75b1ca35cc8315ba8ce23732e679c3ae5
+    secure: C/JcTUS0CTkBLE9syYzpYxJdDdfTl35MCSiNwxClbFP6QdKhsSUxGDc/Uyw9QKb+
    draft: false
    # All the zipped artifacts will be deployed
    artifact: /.*\.zip/
