@@ -40,7 +40,6 @@ after_build:
   - ps: Get-ChildItem .\*.zip | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 #
 deploy:
-   release: SQLite3-Encryption-v%APPVEYOR_BUILD_VERSION%
    description: 'Automatically deployed release'
    provider: GitHub
    auth_token:
